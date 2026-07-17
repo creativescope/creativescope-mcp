@@ -1,46 +1,89 @@
 # CreativeScope MCP
 
-**See the winning ads in mobile games - inside your AI agent.**
+**Mobile-game ad creative intelligence for any MCP-enabled agent.**
 
-CreativeScope is competitor creative intelligence for mobile games. Search millions of game ad creatives across 9 networks (Meta, Google, TikTok, Unity, AppLovin, Mintegral, ironSource, Vungle, Pangle), get AI analysis of opening hooks and creative patterns, track any advertiser, and pull creative rankings - inside Claude, Codex, Cursor, or any MCP-enabled agent.
+CreativeScope is a hosted [Model Context Protocol](https://modelcontextprotocol.io) server that gives your AI agent live access to mobile-game advertising creative intelligence — creative search, Rising/Evergreen rankings, advertiser & studio profiles, similar-creative lookup, and AI hook analysis — compiled from **publicly available ad placements** across major SDK ad networks.
 
-**Status: launching soon.** Get early access and your free API key at https://creativescope.ai
+Works with Claude, Codex, Cursor, or any MCP-compatible client. Claude is used only as an example below.
+
+- Website: https://creativescope.ai
+- Get an API key (free tier available): https://creativescope.ai/mcp
+- Pricing & limits: https://creativescope.ai/pricing
 
 ## Why CreativeScope
 
-**SDK ad networks included.** Unity, AppLovin, Mintegral, ironSource, Vungle and Pangle have no public ad library, so free ad-library tools cannot see them. CreativeScope covers all 9 major game ad networks, updated daily.
+- **SDK ad-network coverage** — beyond the usual Meta Ad Library: AppLovin, Mintegral, Unity, ironSource, Vungle, Pangle, AdMob, TikTok and more.
+- **Game-specialized** — genres, opening hooks, playables, UGC styles, art styles, moods, and creative patterns tuned for UA teams.
+- **AI analysis, not just a feed** — representative hooks, confidence-scored insights, and "why it's relevant" reasoning returned as structured data your agent can act on.
 
-**Built for mobile games only.** Game genres, playables, hooks and UA metrics - not generic e-commerce ads.
+## Connecting
 
-**AI creative analysis.** Video breakdowns, opening-hook analysis and creative pattern detection on every creative.
+CreativeScope is a **remote** MCP server.
 
-**Creative rankings.** Rising and evergreen creatives by day, week or month.
+- Endpoint: `https://mcp.creativescope.ai/mcp`
+- Transport: Streamable HTTP (stateless)
+- Auth: send your API key as `Authorization: Bearer <api_key>` (also accepts `X-Api-Key: <api_key>`)
+
+Get a key at https://creativescope.ai/mcp — keys look like `cs_live_...`. Keep them secret; don't commit or share them.
+
+### Claude Desktop / Cursor / Codex (via mcp-remote)
+
+```json
+{
+  "mcpServers": {
+    "creativescope": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.creativescope.ai/mcp",
+        "--header",
+        "Authorization: Bearer cs_live_YOUR_KEY"
+      ]
+    }
+  }
+}
+```
+
+Clients that support remote MCP servers natively can point directly at `https://mcp.creativescope.ai/mcp` and set the `Authorization` header to `Bearer cs_live_YOUR_KEY`.
 
 ## Tools
 
 | Tool | What it does |
-|---|---|
-| search_creatives | Search creatives by keyword or visual description across 9 networks |
-| get_creative_detail | AI analysis: video breakdown, opening hook, creative patterns |
-| find_similar_creatives | Visual similarity search by creative or image |
-| search_advertisers | Find advertisers by name, genre or region |
-| get_advertiser_profile | Advertiser overview: creatives, hooks, patterns, regions |
-| get_creative_rankings | Rising and evergreen rankings by day, week or month |
+| --- | --- |
+| `search_creatives` | Search game ad creatives by natural language, platform, country, genre, format, and date range |
+| `get_creative_detail` | Full detail for one creative: delivery data, tag insights, and raw AI analysis |
+| `find_similar_creatives` | Find creatives in the same cluster as a given `creative_id` |
+| `search_advertisers` | Search advertisers, games, and studios |
+| `get_advertiser_profile` | Profile for an advertiser or game |
+| `submit_reference_image_search` | Start an async "find similar by reference image" job |
+| `get_reference_image_search_status` | Poll a reference-image job's status |
+| `get_reference_image_search_results` | Fetch results once a reference-image job completes |
+| `generate_weekly_creative_brief` | Generate a weekly creative brief |
+| `get_creative_rankings` | Rising / Evergreen creative rankings |
 
-## Quickstart
+Most list tools return up to 20 items per call. Analysis fields are returned in English; some raw `ai_analysis` fields in `get_creative_detail` may still contain Chinese pending full localization.
 
-Works with Claude Desktop, Claude.ai, Codex, Cursor and any MCP client. Setup takes about a minute: sign up at https://creativescope.ai, grab your free API key, and paste one config block into your client. Per-client setup guides will be published here at launch.
+## Example prompts
 
-## Try asking
+- "Show me the top rising match-3 ad creatives in the US over the last 30 days."
+- "Find UGC-style ads with a fail-state opening hook for puzzle games."
+- "Profile the advertiser behind this creative and show 5 similar creatives."
 
-"What's rising in SLG games on TikTok this week?"
+## Plans
 
-"Find UGC-style video ads for match-3 games in the US"
+Free, Pro, and Team plans differ in tool access and monthly quota. See https://creativescope.ai/pricing. Usage is metered per tool call.
 
-"Compare the creatives this game runs in the US vs Japan - what's different about the hooks?"
+## Data
+
+Creative intelligence is compiled from **publicly available ad placements** and concerns businesses and their public advertising activity, not private individuals. Ad creatives, game titles, and trademarks belong to their respective owners. To request review or removal, contact support@creativescope.ai.
 
 ## Links
 
-Website: https://creativescope.ai / Support: support@creativescope.ai
+- Privacy Policy: https://creativescope.ai/privacy
+- Terms of Service: https://creativescope.ai/terms
+- Support: support@creativescope.ai
 
-Note: some analysis fields may currently be returned in Chinese; your AI assistant translates them automatically. Full native English output is coming soon.
+## License
+
+MIT — see [LICENSE](./LICENSE). This repository contains the public listing and connection metadata for the CreativeScope MCP service; the hosted service itself is proprietary.
