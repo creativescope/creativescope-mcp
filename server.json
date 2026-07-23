@@ -1,7 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.creativescope/creative-intelligence",
-  "description": "Mobile-game ad creative intelligence for any MCP-enabled agent: creative search, Rising/Evergreen rankings, advertiser profiles, and AI hook analysis across SDK ad networks.",
+  "name": "ai.creativescope/creative-intelligence",
+  "title": "CreativeScope — Mobile Game Ad Creative Intelligence",
+  "description": "Mobile-game ad creative intelligence across SDK ad networks: search, rankings, AI hook analysis.",
   "repository": {
     "url": "https://github.com/creativescope/creativescope-mcp",
     "source": "github"
