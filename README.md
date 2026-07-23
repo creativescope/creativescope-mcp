@@ -1,5 +1,8 @@
 # CreativeScope MCP
 
+[![Smithery](https://smithery.ai/badge/@creativescope/creative-intelligence)](https://smithery.ai/servers/creativescope/creative-intelligence)
+[![Official MCP Registry](https://img.shields.io/badge/Official%20MCP%20Registry-ai.creativescope%2Fcreative--intelligence-blue)](https://registry.modelcontextprotocol.io)
+
 **Mobile-game ad creative intelligence for any MCP-enabled agent.**
 
 CreativeScope is a hosted [Model Context Protocol](https://modelcontextprotocol.io) server that gives your AI agent live access to mobile-game advertising creative intelligence — creative search, Rising/Evergreen rankings, advertiser & studio profiles, similar-creative lookup, and AI hook analysis — compiled from **publicly available ad placements** across major SDK ad networks.
@@ -22,11 +25,17 @@ CreativeScope is a **remote** MCP server.
 
 - Endpoint: `https://mcp.creativescope.ai/mcp`
 - Transport: Streamable HTTP (stateless)
-- Auth: send your API key as `Authorization: Bearer <api_key>` (also accepts `X-Api-Key: <api_key>`)
+- Auth: **OAuth** (recommended where supported) or API key (`Authorization: Bearer <api_key>`, also accepts `X-Api-Key: <api_key>`)
 
-Get a key at https://creativescope.ai/mcp — keys look like `cs_live_...`. Keep them secret; don't commit or share them.
+### Claude Desktop / Claude.ai (OAuth — no key needed)
 
-### Claude Desktop / Cursor / Codex (via mcp-remote)
+**Settings → Connectors → Add connector**, paste `https://mcp.creativescope.ai/mcp`, then authorize on the CreativeScope page. You're connected — all tools available immediately.
+
+### API key (other clients)
+
+Get a free key at https://creativescope.ai/mcp — keys look like `cs_live_...`. Keep them secret; don't commit or share them.
+
+### Cursor / Codex (via mcp-remote)
 
 ```json
 {
@@ -80,8 +89,8 @@ Creative intelligence is compiled from **publicly available ad placements** and 
 
 ## Links
 
-- Privacy Policy: https://creativescope.ai/privacy
-- Terms of Service: https://creativescope.ai/terms
+- Privacy Policy: https://creativescope.ai/privacy-policy
+- Terms of Service: https://creativescope.ai/terms-of-service
 - Support: support@creativescope.ai
 
 ## License
