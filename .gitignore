@@ -1,0 +1,8 @@
+# Secrets & local test artifacts — never commit
+.env
+.env.*
+*.key
+config.snippet.toml
+selftest/
+dist/
+mcp_call.py

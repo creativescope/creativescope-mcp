@@ -1,0 +1,12 @@
+interface:
+  display_name: "CreativeScope Best Practices"
+  short_description: "Tool selection, filters, and pitfalls for the CreativeScope MCP server"
+  brand_color: "#3B82F6"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "creativescope"
+      description: "CreativeScope MCP server"
+      transport: "streamable_http"
+      url: "https://mcp.creativescope.ai/mcp"

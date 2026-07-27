@@ -1,0 +1,12 @@
+interface:
+  display_name: "Image Similarity Scan"
+  short_description: "Find live mobile game ads similar to a reference image (async search)"
+  brand_color: "#10B981"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "creativescope"
+      description: "CreativeScope MCP server"
+      transport: "streamable_http"
+      url: "https://mcp.creativescope.ai/mcp"

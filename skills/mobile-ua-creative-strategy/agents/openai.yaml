@@ -1,0 +1,12 @@
+interface:
+  display_name: "Mobile UA Creative Strategy"
+  short_description: "UA creative strategy playbook — hooks, testing cadence, production briefs"
+  brand_color: "#EF4444"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "creativescope"
+      description: "CreativeScope MCP server"
+      transport: "streamable_http"
+      url: "https://mcp.creativescope.ai/mcp"

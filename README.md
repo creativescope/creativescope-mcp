@@ -70,8 +70,26 @@ Clients that support remote MCP servers natively can point directly at `https://
 | `get_reference_image_search_results` | Fetch results once a reference-image job completes |
 | `generate_weekly_creative_brief` | Generate a weekly creative brief |
 | `get_creative_rankings` | Rising / Evergreen creative rankings |
+| `get_game_rank_markets` | App Store / Google Play chart presence by country, category, store, and rank type |
+| `get_game_rank_trend` | Daily store-ranking series over a date range (best or exact mode) |
 
 Most list tools return up to 20 items per call. Analysis fields are returned in English; some raw `ai_analysis` fields in `get_creative_detail` may still contain Chinese pending full localization.
+
+## Agent Skills
+
+Ready-made [Agent Skills](https://agentskills.io) that teach your agent proven
+CreativeScope workflows — install the folders from [`skills/`](./skills) into
+your client (Claude, Codex, or any Agent-Skills-compatible host):
+
+| Skill | What it does |
+| --- | --- |
+| [`creativescope-best-practices`](./skills/creativescope-best-practices) | Foundation layer: tool selection, filters, pitfalls, and honesty rules for all CreativeScope tools |
+| [`competitor-creative-audit`](./skills/competitor-creative-audit) | Full creative-strategy audit for one advertiser: identity resolution, store performance, tiered creative sampling, cross-validation |
+| [`weekly-inspiration-brief`](./skills/weekly-inspiration-brief) | Shareable weekly creative brief for a genre/market, with count-verified patterns |
+| [`image-similarity-scan`](./skills/image-similarity-scan) | Async reference-image similarity search: submit → poll → results, with relevance review |
+| [`mobile-ua-creative-strategy`](./skills/mobile-ua-creative-strategy) | UA creative strategy playbook: hook taxonomy, two-week testing cadence, production briefs |
+
+Start with `creativescope-best-practices` — the other skills build on it.
 
 ## Example prompts
 

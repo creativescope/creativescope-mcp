@@ -1,0 +1,12 @@
+interface:
+  display_name: "Weekly Inspiration Brief"
+  short_description: "Shareable weekly ad-creative inspiration brief for mobile games"
+  brand_color: "#F59E0B"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "creativescope"
+      description: "CreativeScope MCP server"
+      transport: "streamable_http"
+      url: "https://mcp.creativescope.ai/mcp"
