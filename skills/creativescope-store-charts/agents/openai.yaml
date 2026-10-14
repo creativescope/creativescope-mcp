@@ -1,0 +1,12 @@
+interface:
+  display_name: "CreativeScope Store Charts"
+  short_description: "App Store + Google Play chart presence and ranking trends for mobile games"
+  brand_color: "#10B981"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "creativescope"
+      description: "CreativeScope MCP server"
+      transport: "streamable_http"
+      url: "https://mcp.creativescope.ai/mcp"
