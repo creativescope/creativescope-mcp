@@ -88,6 +88,7 @@ your client (Claude, Codex, or any Agent-Skills-compatible host):
 | [`weekly-inspiration-brief`](./skills/weekly-inspiration-brief) | Shareable weekly creative brief for a genre/market, with count-verified patterns |
 | [`image-similarity-scan`](./skills/image-similarity-scan) | Async reference-image similarity search: submit → poll → results, with relevance review |
 | [`mobile-ua-creative-strategy`](./skills/mobile-ua-creative-strategy) | UA creative strategy playbook: hook taxonomy, two-week testing cadence, production briefs |
+| [`creativescope-store-charts`](./skills/creativescope-store-charts) | App Store + Google Play chart presence and daily ranking trends for a game (where it's charting, how its position moved) |
 
 Start with `creativescope-best-practices` — the other skills build on it.
 
